@@ -81,7 +81,7 @@ img {
 .navbar-default {
     background: #202020;
     border: none;
-    border-left: 6px solid #d54ab6;
+    border-left: 0px solid #6e2585;
     padding-right: 40px;
     margin: 0 !important;
     position: relative;
@@ -110,7 +110,7 @@ img {
   	background-color: transparent;
 }
 .navbar-default .navbar-toggle {
-  	background: #d54ab6;
+  	background: #6e2585;
   	border-radius: 0px;
    	border: none;
    	margin-top: 20px;
@@ -226,7 +226,7 @@ img {
   padding: 20px;
 }
 #team h4 {
-  color: #d54ab6;
+  color: #6e2585;
 }
 #team img {
   opacity: 0.8;
@@ -396,7 +396,7 @@ footer a:hover {
   
 }
 .social-icons li a:hover {
-  background: #d54ab6;
+  background: #6e2585;
   color: #fff;
 }
 
