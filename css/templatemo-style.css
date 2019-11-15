@@ -162,10 +162,11 @@ img {
   padding-bottom: 4px;
 }
 .divider .divider-wrapper {
-  padding: 40px 20px 40px 20px;
-  position: relative;
-  bottom: 40px;
-  transition: all 0.4s ease-in;
+	padding: 40px 20px 40px 20px;
+	position: relative;
+	bottom: 40px;
+	transition: all 0.4s ease-in;
+	background-color: #FF0000;
 }
 .divider .divider-wrapper:hover {
   bottom: 60px;
