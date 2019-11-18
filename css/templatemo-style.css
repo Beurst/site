@@ -278,12 +278,17 @@ img {
   background-size: cover;
   background-position: center;
   min-height: 500px;
-  padding-top: 160px;
+  padding-top: 270px;
 }
 #portfolio {
   text-align: center;
   padding-top: 80px;
   padding-bottom: 60px;
+  }
+#portfolio2 {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 0px;
   }
 #portfolio h2 {
   padding-bottom: 20px;
