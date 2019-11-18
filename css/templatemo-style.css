@@ -182,6 +182,32 @@ img {
   background: #191919;
 }
 
+/* about2 section */
+#about2-header {
+  background: url('../images/about2.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+  padding-top: 160px;
+}
+#about {
+  padding-top: 60px;
+}
+#about .container {
+  background: #191919;
+}
+#about .col-md-6 {
+  padding: 0;
+  margin: 0;
+}
+#about .about-des {
+  padding-top: 20px;
+  padding-left: 30px;
+  padding-right: 20px;
+}
+#about .btn {
+  margin-top: 30px;
+}
 /* about section */
 #about-header {
   background: url('../images/about-header.jpg') no-repeat;
