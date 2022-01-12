@@ -1,47 +1,92 @@
 
-// GOOGLE MAP
-var map = '';
-var center;
 
-function initialize() {
-    var mapOptions = {
-      zoom: 16,
-      center: new google.maps.LatLng(13.758468, 100.567481),
-      scrollwheel: false
-    };
-  
-    map = new google.maps.Map(document.getElementById('map-canvas'),  mapOptions);
+// ISOTOPE FILTER
 
-    google.maps.event.addDomListener(map, 'idle', function() {
-        calculateCenter();
-    });
-  
-    google.maps.event.addDomListener(window, 'resize', function() {
-        map.setCenter(center);
-    });
-}
+jQuery(document).ready(function($){
 
-function calculateCenter() {
-  center = map.getCenter();
-}
+	if ( $('.iso-box-wrapper').length > 0 ) { 
 
-function loadGoogleMap(){
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' + 'callback=initialize';
-    document.body.appendChild(script);
-}
+	    var $container 	= $('.iso-box-wrapper'), 
+	    	$imgs 		= $('.iso-box img');
 
-$(function(){
-  loadGoogleMap();
+
+
+	    $container.imagesLoaded(function () {
+
+	    	$container.isotope({
+				layoutMode: 'fitRows',
+				itemSelector: '.iso-box'
+	    	});
+
+	    	$imgs.load(function(){
+	    		$container.isotope('reLayout');
+	    	})
+
+	    });
+
+	    //filter items on button click
+
+	    $('.filter-wrapper li a').click(function(){
+
+	        var $this = $(this), filterValue = $this.attr('data-filter');
+
+			$container.isotope({ 
+				filter: filterValue,
+				animationOptions: { 
+				    duration: 750, 
+				    easing: 'linear', 
+				    queue: false, 
+				}              	 
+			});	            
+
+			// don't proceed if already selected 
+
+			if ( $this.hasClass('selected') ) { 
+				return false; 
+			}
+
+			var filter_wrapper = $this.closest('.filter-wrapper');
+			filter_wrapper.find('.selected').removeClass('selected');
+			$this.addClass('selected');
+
+	      return false;
+	    }); 
+
+	}
+
 });
 
-// NIVO LIGHTBOX
-$('#portfolio a').nivoLightbox({
-        effect: 'fadeScale',
+
+// MAIN NAVIGATION
+
+ $('.main-navigation').onePageNav({
+        scrollThreshold: 0.2, // Adjust if Navigation highlights too early or too late
+        scrollOffset: 75, //Height of Navigation Bar
+        filter: ':not(.external)',
+        changeHash: true
+    }); 
+
+    /* NAVIGATION VISIBLE ON SCROLL */
+    mainNav();
+    $(window).scroll(function () {
+        mainNav();
     });
 
+    function mainNav() {
+        var top = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+        if (top > 40) $('.sticky-navigation').stop().animate({
+            "opacity": '1',
+            "top": '0'
+        });
+        else $('.sticky-navigation').stop().animate({
+            "opacity": '0',
+            "top": '-75'
+        });
+    }
+
+
 // HIDE MOBILE MENU AFTER CLIKING ON A LINK
-   $('.navbar-collapse a').click(function(){
+
+    $('.navbar-collapse a').click(function(){
         $(".navbar-collapse").collapse('hide');
     });
